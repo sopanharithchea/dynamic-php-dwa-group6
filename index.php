@@ -120,7 +120,7 @@ include('./layout/header.html');
             <h2 class="mb-5 h3">Recent Jobs</h2>
             <div class="rounded border jobs-wrap">
 
-              <a href="job-single.html" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
+              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
                 </div>
@@ -141,7 +141,7 @@ include('./layout/header.html');
                 </div>  
               </a>
 
-              <a href="job-single.html" class="job-item d-block d-md-flex align-items-center freelance">
+              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center freelance">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/logo_1.png" alt="Image" class="img-fluid mx-auto">
                 </div>
@@ -163,7 +163,7 @@ include('./layout/header.html');
               </a>
 
 
-              <a href="job-single.html" class="job-item d-block d-md-flex align-items-center freelance">
+              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center freelance">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/logo_1.png" alt="Image" class="img-fluid mx-auto">
                 </div>
@@ -185,7 +185,7 @@ include('./layout/header.html');
               </a>
 
 
-              <a href="job-single.html" class="job-item d-block d-md-flex align-items-center fulltime">
+              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center fulltime">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
                 </div>
@@ -206,7 +206,7 @@ include('./layout/header.html');
                 </div>  
               </a>
 
-              <a href="job-single.html" class="job-item d-block d-md-flex align-items-center partime">
+              <a href="job-single.php" class="job-item d-block d-md-flex align-items-center partime">
                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                   <img src="images/logo_2.png" alt="Image" class="img-fluid mx-auto">
                 </div>

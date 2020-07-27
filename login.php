@@ -7,99 +7,74 @@ include('./layout/header.html');
 
 <div class="unit-5 overlay" style="background-image: url('images/hero_1.jpg');">
   <div class="container text-center">
-    <h2 class="mb-0">About Us</h2>
-    <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>About Us</span></p>
+    <h2 class="mb-0">Sign Up or Login</h2>
+    <p class="mb-0 unit-6"><a href="index.php">Home</a> <span class="sep">></span> <span>Login</span></p>
   </div>
 </div>
-
-
-<div class="site-section" data-aos="fade">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6 mb-5 mb-md-0">
-
-        <div class="img-border">
-          <a href="https://vimeo.com/28959265" class="popup-vimeo image-play">
-            <span class="icon-wrap">
-              <span class="icon icon-play"></span>
-            </span>
-            <img src="images/hero_1.jpg" alt="Image" class="img-fluid rounded">
-          </a>
-        </div>
-
-      </div>
-      <div class="col-md-5 ml-auto">
-        <div class="text-left mb-5 section-heading">
-          <h2>About Us</h2>
-        </div>
-
-        <p class="mb-4 h5 font-italic lineheight1-5">&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nobis magni eaque velit eum, id rem eveniet dolor possimus voluptas..&rdquo;</p>
-        <p>&mdash; <strong class="text-black font-weight-bold">John Holmes</strong>, Marketing Strategist</p>
-        <p><a href="https://vimeo.com/28959265" class="popup-vimeo text-uppercase">Watch Video <span class="icon-arrow-right small"></span></a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <div class="site-section bg-light">
   <div class="container">
-    <div class="row justify-content-center mb-5">
-      <!-- <div class="col-md-7 text-center"> -->
-      <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-        <h2 class="mb-5">The Team</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum magnam illum maiores adipisci pariatur, eveniet.</p>
+    <div class="row">
+
+      <div class="col-md-12 col-lg-8 mb-5">
+
+
+
+        <form action="#" class="p-5 bg-white">
+
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="font-weight-bold" for="firstname">First Name</label>
+              <input type="text" id="firstname" class="form-control" required>
+              <label class="font-weight-bold" for="lastname">Last Name</label>
+              <input type="text" id="lastname" class="form-control" required>
+            </div>
+          </div>
+          <div class="row form-group mb-5">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="font-weight-bold" for="email">Email</label>
+              <input type="email" id="email" class="form-control" placeholder="jeff.wood@jobfinder.com" required>
+            </div>
+          </div>
+
+          <div class="row form-group mb-4">
+            <div class="col-md-12">
+              <h3>Location</h3>
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <input type="text" class="form-control" placeholder="New York City">
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Sign Up" class="btn btn-primary  py-2 px-5">
+            </div>
+          </div>
+        </form>
       </div>
 
-      <!-- </div> -->
-    </div>
-    <div class="row team">
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="100">
-        <a href="#" class="person">
-          <img src="images/person_1.jpg" alt="Image placeholder">
-          <h2>Michelle Megan</h2>
-          <p>CEO, Co-founder</p>
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="200">
-        <a href="#" class="person">
-          <img src="images/person_2.jpg" alt="Image placeholder">
-          <h2>Mike Stellar</h2>
-          <p>CTO Co-founder</p>
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="300">
-        <a href="#" class="person">
-          <img src="images/person_3.jpg" alt="Image placeholder">
-          <h2>Gregg White</h2>
-          <p>VP Producer</p>
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="400">
-        <a href="#" class="person">
-          <img src="images/person_4.jpg" alt="Image placeholder">
-          <h2>Rogie Knitt</h2>
-          <p>Project Manager</p>
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="500">
-        <a href="#" class="person">
-          <img src="images/person_1.jpg" alt="Image placeholder">
-          <h2>Ben Koh</h2>
-          <p>Project Manager</p>
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="600">
-        <a href="#" class="person">
-          <img src="images/person_2.jpg" alt="Image placeholder">
-          <h2>Chris Stanworth</h2>
-          <p>Product Designer</p>
-        </a>
+      <div class="col-lg-4">
+        <div class="p-4 mb-3 bg-white">
+          <h3 class="h5 text-black mb-3">Contact Info</h3>
+          <p class="mb-0 font-weight-bold">Address</p>
+          <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+
+          <p class="mb-0 font-weight-bold">Phone</p>
+          <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+
+          <p class="mb-0 font-weight-bold">Email Address</p>
+          <p class="mb-0"><a href="#">youremail@domain.com</a></p>
+
+        </div>
+
+        <div class="p-4 mb-3 bg-white">
+          <h3 class="h5 text-black mb-3">More Info</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur</p>
+          <p><a href="#" class="btn btn-primary  py-2 px-4">Learn More</a></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!-- END section -->
 
 
 
@@ -166,6 +141,7 @@ include('./layout/header.html');
 
   </div>
 </div>
+
 <?php // Return to PHP.
 include('./layout/footer.html'); // Include the footer.
 ?>
