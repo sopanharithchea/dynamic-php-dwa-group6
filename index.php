@@ -1,4 +1,6 @@
 <?php
+// Start the session
+session_start();
 define('TITLE', 'Index for the First Page');
 // Include the header:
 include('./layout/header.html');

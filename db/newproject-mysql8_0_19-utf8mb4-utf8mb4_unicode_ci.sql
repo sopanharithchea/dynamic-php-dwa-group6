@@ -4,7 +4,7 @@
 -- https://tableplus.com/
 --
 -- Database: newproject
--- Generation Time: 2020-07-27 15:35:47.4700
+-- Generation Time: 2020-07-27 23:58:21.6090
 -- -------------------------------------------------------------
 
 
@@ -106,18 +106,15 @@ CREATE TABLE `shifts` (
 
 CREATE TABLE `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role_id` int NOT NULL DEFAULT '0',
-  `photo` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `role_id` int DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `categories` (`id`, `name`, `active`, `icon`, `total`, `create_at`) VALUES
 ('3', 'Accountant', '1', 'fa-university', '230', '2020-07-27 08:23:47'),
@@ -176,6 +173,10 @@ INSERT INTO `shifts` (`id`, `name`, `active`, `create_at`) VALUES
 ('3', 'Part-Time', '1', '2020-07-27 08:25:21'),
 ('4', 'Intern', '1', '2020-07-27 08:25:21'),
 ('5', 'Training/Workshops', '1', '2020-07-27 08:25:21');
+
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`, `updated_at`, `role_id`) VALUES
+('1', 'user', 'example', 'user@example.com', '123', '2020-07-27 23:32:19', '2020-07-27 23:32:19', '0'),
+('2', 'Another', 'Example', 'another@example.com', '111', '2020-07-27 23:57:22', '2020-07-27 23:57:22', '0');
 
 
 

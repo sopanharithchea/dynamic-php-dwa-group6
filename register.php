@@ -2,7 +2,10 @@
 ob_start();
 // Start the session
 session_start();
-define('TITLE', 'Login');
+function function_alert($msg) {
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
+define('TITLE', 'Register');
 // Include the header:
 include './layout/header.html';
 // Leave the PHP section to display lots of HTML:
@@ -23,17 +26,14 @@ include './layout/header.html';
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // username and password sent from form
 
+                    $first_name = mysqli_real_escape_string($db, $_POST['first_name']);
+                    $last_name = mysqli_real_escape_string($db, $_POST['last_name']);
                     $my_email = mysqli_real_escape_string($db, $_POST['email']);
-                    $my_pass = mysqli_real_escape_string($db, $_POST['password']);
-
-                    $sql = "SELECT * FROM users WHERE `email` = '$my_email' and `password` = '$my_pass'";
-                    $result = mysqli_query($db, $sql);
-                    $row = mysqli_fetch_array($result);
-                    $count = mysqli_num_rows($result);
-
-                    // If result matched $myusername and $mypassword, table row must be 1 row
-
-                    if ($count == 1) {
+                    $pass1 = mysqli_real_escape_string($db, $_POST['pass1']);
+                    $pass2 = mysqli_real_escape_string($db, $_POST['pass2']);
+                    if ($pass1 == $pass2) {
+                        $sql = "INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`, `created_at`) VALUES ('$first_name','$last_name','$my_email','$pass2','NOW()')";
+                        $result = mysqli_query($db, $sql);
                         $_SESSION['login_user'] = $my_email;
                         $_SESSION["logged"] = 1;
                         $_SESSION["user"] = $my_email;
@@ -49,21 +49,25 @@ include './layout/header.html';
                                 "Cannot redirect, for now please click this <a " .
                                 "href=\"index.php\">link</a> instead\n";
                             exit; //exit this login.php page
-                        }
+                        };
                     } else {
-                        $error = "Your Login Name or Password is invalid";
+                        function_alert("Passwords do not match. Please try again");
                     }
                 }
                 ?>
-                <form action="" method="post" class="p-5 bg-white">
+                <form action=" " method="POST" class="p-5 bg-white">
                     <div class="row font-weight-bold">
-                        <p>Don't have an account? <a href="register.php">Click here</a></p>
+                        <p>Already have an account? <a href="login.php">Click here</a></p>
                     </div>
                     <br />
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <h3 class="font-weight-bold">Login</h3>
+                            <h3 class="font-weight-bold">Register</h3>
                             <br>
+                            <label class="font-weight-bold" for="first_name">First Name</label>
+                            <input type="text" name="first_name" class="form-control" required>
+                            <label class="font-weight-bold" for="last_name">Last Name</label>
+                            <input type="text" name="last_name" class="form-control" required>
                         </div>
                     </div>
                     <div class="row form-group mb-5">
@@ -72,13 +76,17 @@ include './layout/header.html';
                             <input type="email" name="email" class="form-control" placeholder="jeff.wood@jobfinder.com" required>
                         </div>
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <label class="font-weight-bold" for="password">Password</label>
-                            <input type="password" name="password" class="form-control" required>
+                            <label class="font-weight-bold" for="pass1">Password</label>
+                            <input type="password" name="pass1" class="form-control" required>
+                        </div>
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="pass2">Confirm Password</label>
+                            <input type="password" name="pass2" class="form-control" required>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <input type="submit" value="Login" class="btn btn-primary  py-2 px-5">
+                            <input type="submit" value="Sign Up" class="btn btn-primary  py-2 px-5">
                         </div>
                     </div>
                 </form>
