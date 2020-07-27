@@ -25,7 +25,6 @@ include './layout/header.html';
                 include './db_conn.php';
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // username and password sent from form
-
                     $first_name = mysqli_real_escape_string($db, $_POST['first_name']);
                     $last_name = mysqli_real_escape_string($db, $_POST['last_name']);
                     $my_email = mysqli_real_escape_string($db, $_POST['email']);

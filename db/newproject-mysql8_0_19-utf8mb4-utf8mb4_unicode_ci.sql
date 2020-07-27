@@ -4,7 +4,7 @@
 -- https://tableplus.com/
 --
 -- Database: newproject
--- Generation Time: 2020-07-27 23:58:21.6090
+-- Generation Time: 2020-07-28 00:09:31.3370
 -- -------------------------------------------------------------
 
 
@@ -108,13 +108,14 @@ CREATE TABLE `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `role_id` int DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `key_email` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `categories` (`id`, `name`, `active`, `icon`, `total`, `create_at`) VALUES
 ('3', 'Accountant', '1', 'fa-university', '230', '2020-07-27 08:23:47'),
@@ -176,7 +177,8 @@ INSERT INTO `shifts` (`id`, `name`, `active`, `create_at`) VALUES
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`, `updated_at`, `role_id`) VALUES
 ('1', 'user', 'example', 'user@example.com', '123', '2020-07-27 23:32:19', '2020-07-27 23:32:19', '0'),
-('2', 'Another', 'Example', 'another@example.com', '111', '2020-07-27 23:57:22', '2020-07-27 23:57:22', '0');
+('2', 'Another', 'Example', 'another@example.com', '111', '2020-07-27 23:57:22', '2020-07-27 23:57:22', '0'),
+('3', 'Admin', 'Admin', 'admin@example.com', 'admin', '2020-07-28 00:07:28', '2020-07-28 00:07:28', '1');
 
 
 
