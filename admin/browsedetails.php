@@ -12,6 +12,7 @@
         $category = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM `categories` WHERE `id` = '{$row['category']}'"));
         foreach ($result as $row) {
             echo '
+            <div class="row">
             <a href="admin_job_single.php?jobid=' . urldecode($row['id']) . '&name=' . $row['name'] . '" class="job-item d-block d-lg-flex align-items-center fulltime">
             <div class="company-logo blank-logo text-center text-md-left pl-3">
                 <img src="../src/images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
@@ -24,9 +25,9 @@
                 '</div>
                         <div class="mr-3"><span class="icon-room mr-1"></span>' . $row['location'] .
                 '</div>
-                    <div><span class="icon-money mr-1"></span> $55000 to $70000 </div>
-                    </div>
                 </div>
+                </div>
+
             </div>
             <div class="job-category align-self-center">
                 <div class="p-3">
@@ -43,6 +44,8 @@
                 <span class="text-info p-2 rounded border border-danger text-danger"><a href="delete_job_single.php?jobid=' . urldecode($row['id']) . '&name=' . urldecode($row['name']) . '" class="text-danger">Delete</a></span>
             </div>
         </div>
+        </div>
+
         ';
         }
     } else {

@@ -23,9 +23,10 @@ if (mysqli_query($db, $sql)) {
             '</div>
                         <div class="mr-3"><span class="icon-room mr-1"></span>' . $row['location'] .
             '</div>
-                    <div><span class="icon-money mr-1"></span> $55000 to 70000 </div>
-                    </div>
+                   
                 </div>
+                </div>
+
             </div>
             <div class="job-category align-self-center">
                 <div class="p-3">
