@@ -19,6 +19,7 @@ $shift_id = $row['shift'];
 $category_id = $row['category'];
 $location = $row['location'];
 $jd = $row['job_desc'];
+$_SESSION['job_id'] = $_GET['jobid'];
 ?>
 
 <div class="unit-5 overlay" style="background-image: url('src/images/hero_1.jpg');">
@@ -47,7 +48,7 @@ $jd = $row['job_desc'];
           }
         }
         ?>
-        <form action="jobsubmit.php" class="p-5 bg-white" method="POST">
+        <form action="jobupdate.php" class="p-5 bg-white" method="POST">
 
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">

@@ -4,7 +4,7 @@ ob_start();
 session_start();
 $title = $_GET['name'];
 // Include the header:
-include('./layout/header.php');
+include('layout/header.php');
 include 'db_conn.php';
 if ($db === false) {
   die("ERROR: Could not connect. " . mysqli_connect_error());
@@ -59,5 +59,5 @@ $category = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM `categories` WHE
   </div>
 </div>
 <?php // Return to PHP.
-include('./layout/footer.html'); // Include the footer.
+include('layout/footer.html'); // Include the footer.
 ?>

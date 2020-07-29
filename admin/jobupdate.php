@@ -6,13 +6,13 @@ function function_alert($msg) {
 }
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-require 'db_conn.php';
+require '../db_conn.php';
  
 // Check connection
 if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
-} elseif ($_SESSION["valid_user"] != 1 || $_SESSION["admin"] != 1){
-    function_alert("You don't have permissions to post");
+} elseif ($_SESSION["admin"] != 1){
+    function_alert("You don't have permissions of this post");
     die();
 }
  
@@ -23,14 +23,16 @@ $category = mysqli_real_escape_string($db, $_REQUEST['category']);
 $location = mysqli_real_escape_string($db, $_REQUEST['location']);
 $description = mysqli_real_escape_string($db, $_REQUEST['description']);
 $shift = mysqli_real_escape_string($db, $_REQUEST['shift']);
-$min_sal = mysqli_real_escape_string($db, $_REQUEST['min_sal']);
-$max_sal = mysqli_real_escape_string($db, $_REQUEST['max_sal']);
+$id = $_SESSION['job_id'];
 // Attempt insert query execution
-$sql = "INSERT INTO jobs (`name`, `company`, `category`, `location`, `job_desc`, `shift`,`mix_sal`,`max_sal`) VALUES ('$name', '$company', '$category','$location', '$description', '$shift')";
+$sql = "UPDATE jobs set `name`='$name', `company`='$company', `category`='$category', `location`='$location', `job_desc`='$description', `shift`='$shift' WHERE `id` = '$id'";
 if(mysqli_query($db, $sql)){
-    header("Location: new-post.php?done=1");
+    header("Location: admin_job_single.php?jobid={$id}&name={$name}");
+    $_SESSION['job_id'] = null;
+    exit();
 } else{
-    header("Location: new-post.php?done=404");
+    function_alert("Error");
+    header("Location: dashboard.php");
 }
  
 // Close connection

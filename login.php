@@ -50,6 +50,7 @@ include 'layout/header.php';
                         $_SESSION['login_user'] = $my_email;
                         $_SESSION["logged"] = 1;
                         $_SESSION["user"] = $my_email;
+                        $_SESSION["user_id"] = $row['id'];
                         $_SESSION["valid_user"] = 1;
                         $hour = time() + 3600 * 24 * 30;
                         setcookie($my_email, $hour);

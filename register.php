@@ -8,7 +8,7 @@ function function_alert($msg)
 }
 define('TITLE', 'Register');
 // Include the header:
-include './layout/header.php';
+include 'layout/header.php';
 // Leave the PHP section to display lots of HTML:
 ?>
 
@@ -23,7 +23,7 @@ include './layout/header.php';
         <div class="row">
             <div class="col-md-12 col-lg-8 mb-5">
                 <?php
-                include './db_conn.php';
+                require 'db_conn.php';
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // username and password sent from form
                     $first_name = mysqli_real_escape_string($db, $_POST['first_name']);
@@ -34,20 +34,13 @@ include './layout/header.php';
                     if ($pass1 == $pass2) {
                         $sql = "INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`, `created_at`) VALUES ('$first_name','$last_name','$my_email','$pass2','NOW()')";
                         $result = mysqli_query($db, $sql);
-                        $_SESSION['login_user'] = $my_email;
-                        $_SESSION["logged"] = 1;
-                        $_SESSION["user"] = $my_email;
-                        $_SESSION["valid_user"] = 1;
-                        $hour = time() + 3600 * 24 * 30;
-                        setcookie($my_email, $hour);
-                        setcookie("active", 1, $hour);
                         if (!headers_sent($filename)) { //checks whether the page has already received HTTP.
-                            header("Location: index.php");
+                            header("Location: login.php");
                             exit(); //exit this login.php page
                         } else {
                             echo "Headers already sent in $filename \n" .
                                 "Cannot redirect, for now please click this <a " .
-                                "href=\"index.php\">link</a> instead\n";
+                                "href=\"login.php\">link</a> instead\n";
                             exit; //exit this login.php page
                         };
                     } else {
@@ -91,14 +84,10 @@ include './layout/header.php';
                     </div>
                 </form>
             </div>
-
-            <?php
-            include("./layout/sidebar.php");
-            ?>
         </div>
     </div>
 </div>
 
 <?php // Return to PHP.
-include './layout/footer.html'; // Include the footer.
+include 'layout/footer.html'; // Include the footer.
 ?>
