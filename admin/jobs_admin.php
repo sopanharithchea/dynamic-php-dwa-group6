@@ -1,12 +1,9 @@
 <?php
-// Start the session
+//Start session
 session_start();
-$title = 'Browse';
-// Include the header:
-include('layout/header.php');
-// Leave the PHP section to display lots of HTML:
+$title = "Dashboard";
+include("templates/admin_header.php");
 ?>
-
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
@@ -14,7 +11,7 @@ include('layout/header.php');
                 <h2 class="mb-0 h1 text-success py-5">Browse</h2>
                 <div class="rounded border jobs-wrap align-content-xl-center">
                     <?php
-                    include 'browse_details.php'
+                    require 'browsedetails.php'
                     ?>
                 </div>
             </div>
@@ -23,5 +20,5 @@ include('layout/header.php');
 </div>
 
 <?php // Return to PHP.
-include('layout/footer.html'); // Include the footer.
+include('templates/footer.php'); // Include the footer.
 ?>

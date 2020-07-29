@@ -1,10 +1,24 @@
 <?php
-// Start the session
+//Start session
 session_start();
-$title = 'New Job Post';
-// Include the header:
-include('./layout/header.php');
-// Leave the PHP section to display lots of HTML:
+$title = "Dashboard";
+include("templates/admin_header.php");
+require('../db_conn.php');
+if ($db === false) {
+  die("ERROR: Could not connect. " . mysqli_connect_error());
+} elseif ($_GET['jobid'] == null || $_GET['jobid'] == 0) {
+  die(header('location: /admin/index.php'));
+  exit;
+}
+$sql = "SELECT * FROM `jobs` WHERE `id` = '{$_GET['jobid']}' LIMIT 1";
+$result = mysqli_query($db, $sql);
+$row = mysqli_fetch_array($result);
+$shift = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM `shifts` WHERE `id` = '{$row['shift']}'"));
+$category = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM `categories` WHERE `id` = '{$row['category']}'"));
+$shift_id = $row['shift'];
+$category_id = $row['category'];
+$location = $row['location'];
+$jd = $row['job_desc'];
 ?>
 
 <div class="unit-5 overlay" style="background-image: url('src/images/hero_1.jpg');">
@@ -24,7 +38,7 @@ include('./layout/header.php');
         if (!empty($_GET['done'])) {
           switch ($_GET['done']) {
             case 1:
-              echo '<h2 class="mb-0 text-success">Your job was posted!</h2>';
+              echo '<h2 class="mb-0 text-success">Your job was updated!</h2>';
               break;
 
             default:
@@ -38,14 +52,14 @@ include('./layout/header.php');
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="name">Job Title</label>
-              <input type="text" id="name" name="name" class="form-control" required>
+              <input type="text" id="name" name="name" class="form-control" value="<?php echo $row['name'] ?>" required>
             </div>
           </div>
 
           <div class="row form-group mb-5">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="company">Company</label>
-              <input type="text" id="company" name="company" class="form-control" required>
+              <input type="text" id="company" name="company" class="form-control" value="<?php echo $row['company'] ?>" required>
             </div>
           </div>
 
@@ -63,6 +77,9 @@ include('./layout/header.php');
                 $result = mysqli_query($db, $sql);
                 $row = mysqli_fetch_array($result);
                 foreach ($result as $row) {
+                  if ($row['id'] == $shift_id){
+                    echo "<option value=\" {$row['id']} \" selected>{$row['name']}</option>";
+                  }
                   echo "<option value=\" {$row['id']} \">{$row['name']}</option>";
                 }
                 ?>
@@ -78,6 +95,9 @@ include('./layout/header.php');
                 $result = mysqli_query($db, $sql);
                 $row = mysqli_fetch_array($result);
                 foreach ($result as $row) {
+                  if ($row['id'] == $category_id){
+                    echo "<option value=\" {$row['id']} \" selected>{$row['name']}</option>";
+                  }
                   echo "<option value=\" {$row['id']} \">{$row['name']}</option>";
                 }
                 ?>
@@ -100,6 +120,9 @@ include('./layout/header.php');
                 $result = mysqli_query($db, $sql);
                 $row = mysqli_fetch_array($result);
                 foreach ($result as $row) {
+                  if ($row['name'] == $location){
+                    echo "<option value=\" {$row['id']} \" selected>{$row['name']}</option>";
+                  }
                   echo "<option value=\" {$row['name']} \">{$row['name']}</option>";
                 }
                 ?>
@@ -112,15 +135,20 @@ include('./layout/header.php');
               <label class="font-weight-bold" for="description">Description</label>
             </div>
             <div class="col-md-12 mb-3 mb-md-0">
-              <textarea name="description" class="form-control" id="description" cols="30" rows="5" required></textarea>
+              <textarea name="description" class="form-control" id="description" cols="30" rows="5"  required><?php echo "{$jd}"; ?></textarea>
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
-              <input type="submit" value="Post a Job" class="btn btn-primary  py-2 px-5">
+              <input type="submit" value="Update" class="btn btn-primary  py-2 px-5">
             </div>
           </div>
+          <div class="row  form-group">
+              <div class="col-md-12">
+                <a class="btn btn-danger py-2 px-5" href="/admin/dashboard.php">Cancel</a>
+              </div>
+            </div>
         </form>
       </div>
       <?php
@@ -129,6 +157,7 @@ include('./layout/header.php');
     </div>
   </div>
 </div>
+
 <?php // Return to PHP.
-include('./layout/footer.html'); // Include the footer.
+include('templates/footer.php'); // Include the footer.
 ?>

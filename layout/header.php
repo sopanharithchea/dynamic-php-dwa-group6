@@ -6,23 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title><?php echo $title . ' - CamboJobs' ?></title>
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet" />
-  <link rel="stylesheet" href="fonts/icomoon/style.css" />
-
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/magnific-popup.css" />
-  <link rel="stylesheet" href="css/jquery-ui.css" />
-  <link rel="stylesheet" href="css/owl.carousel.min.css" />
-  <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-  <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
-  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="src/fonts/icomoon/style.css" />
+  <link rel="stylesheet" href="src/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="src/css/magnific-popup.css" />
+  <link rel="stylesheet" href="src/css/jquery-ui.css" />
+  <link rel="stylesheet" href="src/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="src/css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="src/css/bootstrap-datepicker.css" />
+  <link rel="stylesheet" href="src/css/animate.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css" />
 
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+  <link rel="stylesheet" href="src/fonts/flaticon/font/flaticon.css" />
 
-  <link rel="stylesheet" href="css/aos.css" />
+  <link rel="stylesheet" href="src/css/aos.css" />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
 <body>
@@ -63,7 +62,18 @@
                       $status = $_SESSION['valid_user'];
                       if ($status == null) {
                         echo '<li><a href="login.php">Login</a></li>';
-                      } else {
+                      } elseif ($_SESSION['admin'] == 1){
+                        echo '
+                        <li class="has-children">
+                          <a href="user.php">' . $_SESSION['user'] . '</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="admin/index.php">Admin</a></li>
+                          <li><a href="logout.php">Logout</a></li>
+                        </ul>
+                        </li>
+                        ';
+                      } 
+                      else {
                         echo '
                         <li class="has-children">
                           <a href="user.php">' . $_SESSION['user'] . '</a>

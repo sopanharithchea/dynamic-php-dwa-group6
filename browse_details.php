@@ -13,7 +13,7 @@ if (mysqli_query($db, $sql)) {
         echo '
             <a href="job-single.php?jobid=' . urldecode($row['id']) . '&name=' . $row['name'] . '" class="job-item d-block d-lg-flex align-items-center  border-bottom fulltime">
             <div class="company-logo blank-logo text-center text-md-left pl-3">
-                <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
+                <img src="src/images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
             </div>
             <div class="job-details h-100">
                 <div class="p-3 align-self-center">

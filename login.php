@@ -8,11 +8,11 @@ function function_alert($msg)
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
 // Include the header:
-include './layout/header.php';
+include 'layout/header.php';
 // Leave the PHP section to display lots of HTML:
 ?>
 
-<div class="unit-5 overlay" style="background-image: url('images/hero_1.jpg');">
+<div class="unit-5 overlay" style="background-image: url('src/images/hero_1.jpg');">
     <div class="container text-center">
         <h2 class="mb-0">Sign Up or Login</h2>
         <p class="mb-0 unit-6"><a href="index.php">Home</a> <span class="sep">></span> <span>Login</span></p>
@@ -43,6 +43,9 @@ include './layout/header.php';
                     if ($count == 1) {
                         if($_SESSION['admin'] == 1 || $_SESSION['logged'] == 1){
                             $_SESSION = [];
+                        }
+                        if ($row['role_id'] == 1){
+                            $_SESSION["admin"] = 1;
                         }
                         $_SESSION['login_user'] = $my_email;
                         $_SESSION["logged"] = 1;
@@ -103,5 +106,5 @@ include './layout/header.php';
 </div>
 
 <?php // Return to PHP.
-include './layout/footer.html'; // Include the footer.
+include 'layout/footer.html'; // Include the footer.
 ?>
