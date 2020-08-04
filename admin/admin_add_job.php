@@ -33,7 +33,7 @@ include('template/header.php');
           }
         }
         ?>
-        <form action="jobsubmit.php" class="p-5 bg-white" method="POST">
+        <form action="admin_job_submit.php.php" class="p-5 bg-white" method="POST">
 
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">

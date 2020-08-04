@@ -55,18 +55,17 @@
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
                       <?php
                       $status = $_SESSION['admin'];
-                      if ($status == 1) {
-                        echo '
-                            <li><a href="jobs_admin.php">Jobs</a></li>
-                            <li><a href="users_admin.php">Users</a></li>';
-                        echo '<li class="has-children">
-                            <a href="dashboard.php">' . $_SESSION['user'] . '</a>
+                      if ($status == 1) : ?>
+                        <li><a href="jobs_admin.php">Jobs</a></li>
+                        <li><a href="users_admin.php">Users</a></li>
+                        <li class="has-children">
+                          <a href="dashboard.php"><?= $_SESSION['user'] ?></a>
                           <ul class="dropdown arrow-top">
                             <li><a href="logout.php">Logout</a></li>
                           </ul>
-                          </li>';
-                      }
-                      ?>
+                        </li>
+                        <li><a href="/index.php">User View</a></li>
+                      <?php endif; ?>
                     </ul>
                   </div>
                 </nav>

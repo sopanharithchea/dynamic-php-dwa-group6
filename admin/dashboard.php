@@ -23,7 +23,7 @@ include("templates/admin_header.php");
         <h2 class="mb-5 h3">Recent Postings</h2>
         <div class="rounded border jobs-wrap">
           <?php
-          include("recentjobs.php");
+          include("admin_recent_jobs.php");
           ?>
         </div>
 

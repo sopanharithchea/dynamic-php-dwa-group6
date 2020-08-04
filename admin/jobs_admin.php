@@ -11,7 +11,7 @@ include("templates/admin_header.php");
                 <h2 class="mb-0 h1 text-success py-5">Browse</h2>
                 <div class="rounded border jobs-wrap align-content-xl-center">
                     <?php
-                    require 'browsedetails.php'
+                    require './admin_browse_details.php'
                     ?>
                 </div>
             </div>
