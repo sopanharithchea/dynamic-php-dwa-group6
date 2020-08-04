@@ -56,8 +56,8 @@
                       <?php
                       $status = $_SESSION['admin'];
                       if ($status == 1) : ?>
-                        <li><a href="jobs_admin.php">Jobs</a></li>
-                        <li><a href="users_admin.php">Users</a></li>
+                        <li><a href="admin_jobs.php">Jobs</a></li>
+                        <li><a href="admin_users.php">Users</a></li>
                         <li class="has-children">
                           <a href="dashboard.php"><?= $_SESSION['user'] ?></a>
                           <ul class="dropdown arrow-top">

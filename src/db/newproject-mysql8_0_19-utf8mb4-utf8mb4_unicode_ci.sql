@@ -1,10 +1,10 @@
 -- -------------------------------------------------------------
--- TablePlus 3.7.0(327)
+-- TablePlus 3.6.2(322)
 --
 -- https://tableplus.com/
 --
 -- Database: newproject
--- Generation Time: 2020-07-28 00:09:31.3370
+-- Generation Time: 2020-08-05 00:29:28.2170
 -- -------------------------------------------------------------
 
 
@@ -43,16 +43,23 @@ CREATE TABLE `companies` (
 CREATE TABLE `jobs` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
-  `description` longtext,
+  `job_desc` longtext,
   `company` varchar(100) NOT NULL,
-  `location_id` int NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `shift_id` int NOT NULL,
-  `active` tinyint NOT NULL DEFAULT '1',
-  `feature` varchar(10) DEFAULT NULL,
+  `location` varchar(100) NOT NULL,
+  `category` int NOT NULL,
+  `shift` int DEFAULT NULL,
+  `min_sal` varchar(10) DEFAULT NULL,
+  `max_sal` varchar(10) DEFAULT NULL,
+  `create_by` int NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  KEY `category` (`category`),
+  KEY `shift` (`shift`),
+  KEY `create_by` (`create_by`),
+  CONSTRAINT `jobs_ibfk_2` FOREIGN KEY (`category`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `jobs_ibfk_3` FOREIGN KEY (`shift`) REFERENCES `shifts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `jobs_ibfk_4` FOREIGN KEY (`create_by`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `locations` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -94,28 +101,29 @@ CREATE TABLE `roles` (
   `name` varchar(50) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `shifts` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   `active` tinyint NOT NULL DEFAULT '1',
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `val` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `users` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `role_id` int DEFAULT '0',
+  `role_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `categories` (`id`, `name`, `active`, `icon`, `total`, `create_at`) VALUES
 ('3', 'Accountant', '1', 'fa-university', '230', '2020-07-27 08:23:47'),
@@ -134,6 +142,9 @@ INSERT INTO `companies` (`id`, `name`, `view`, `create_at`, `active`, `location`
 ('16', 'K.E.T IMPORT EXPORT CO., LTD', '0', '2020-07-27 08:24:01', '1', 'Phnom Penh', 'default.png', NULL),
 ('17', 'HRINC (CAMBODIA) CO., LTD', '0', '2020-07-27 08:24:01', '1', 'Phnom Penh', 'default.png', '<p>HRINC is the leading provider of HR Services to the Cambodia market and expanding to the South East Asia region.&nbsp; We support multinational companies and leading ASEAN conglomerates and SMEs with their Human Resource needs, from consulting and market intelligence, to outsourcing and compliance as well as recruitment</p>'),
 ('18', 'SOMA GROUP CO., LTD.', '0', '2020-07-27 08:24:01', '1', 'Phnom Penh', 'default.png', '<p>Soma Group Co., Ltd is a leading Cambodia company operating in various sectors ranging from agriculture to education, construction, farming, trading, consulting and energy</p>');
+
+INSERT INTO `jobs` (`id`, `name`, `job_desc`, `company`, `location`, `category`, `shift`, `min_sal`, `max_sal`, `create_by`, `create_at`) VALUES
+('51', 'System Administrator', 'To manage our database', 'PWC', ' Phnom Penh ', '4', '2', NULL, NULL, '1', '2020-07-29 11:31:27');
 
 INSERT INTO `locations` (`id`, `name`, `active`, `create_at`) VALUES
 ('1', 'Phnom Penh', '1', '2020-07-27 08:24:17'),
@@ -163,21 +174,15 @@ INSERT INTO `locations` (`id`, `name`, `active`, `create_at`) VALUES
 
 INSERT INTO `roles` (`id`, `name`, `active`) VALUES
 ('1', 'Administrator', '0'),
-('2', 'Manager', '0'),
-('6', 'Manager', '1'),
-('7', 'Assistant', '1'),
-('8', 'Sale', '1'),
-('9', 'CEO', '1');
+('10', 'User', '0');
 
-INSERT INTO `shifts` (`id`, `name`, `active`, `create_at`) VALUES
-('2', 'Full-Time', '1', '2020-07-27 08:25:21'),
-('3', 'Part-Time', '1', '2020-07-27 08:25:21'),
-('4', 'Intern', '1', '2020-07-27 08:25:21'),
-('5', 'Training/Workshops', '1', '2020-07-27 08:25:21');
+INSERT INTO `shifts` (`id`, `name`, `active`, `create_at`, `val`) VALUES
+('2', 'Full-Time', '1', '2020-07-27 08:25:21', 'info'),
+('3', 'Part-Time', '1', '2020-07-27 08:25:21', 'danger'),
+('4', 'Freelance', '1', '2020-07-27 08:25:21', 'warning');
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`, `updated_at`, `role_id`) VALUES
-('1', 'user', 'example', 'user@example.com', '123', '2020-07-27 23:32:19', '2020-07-27 23:32:19', '0'),
-('2', 'Another', 'Example', 'another@example.com', '111', '2020-07-27 23:57:22', '2020-07-27 23:57:22', '0'),
+('1', 'user', 'example', 'user@example.com', '110', '2020-07-27 23:32:19', '2020-07-27 23:32:19', '10'),
 ('3', 'Admin', 'Admin', 'admin@example.com', 'admin', '2020-07-28 00:07:28', '2020-07-28 00:07:28', '1');
 
 

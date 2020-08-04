@@ -1,4 +1,5 @@
 <?php
+$title = 'Register';
 ob_start();
 // Start the session
 session_start();
@@ -6,7 +7,6 @@ function function_alert($msg)
 {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
-define('TITLE', 'Register');
 // Include the header:
 include 'layout/header.php';
 // Leave the PHP section to display lots of HTML:
@@ -89,5 +89,5 @@ include 'layout/header.php';
 </div>
 
 <?php // Return to PHP.
-include 'layout/footer.html'; // Include the footer.
+include 'layout/footer.php'; // Include the footer.
 ?>

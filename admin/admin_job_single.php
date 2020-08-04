@@ -53,7 +53,7 @@ $category = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM `categories` WHE
         <div class="job-details mb-0 bg-dark">
             <div class="p-4">
                 <span class="text-info p-2 rounded border border-warning "><a class="text-warning" href="admin_edit_post.php?edit=1&jobid=' . urldecode($row['id']) . '&name=' . urldecode($row['name']) . '">Edit</a></span>
-                <span class="text-info p-2 rounded border border-danger text-danger"><a href="admin_delete_job.php?jobid=' . urldecode($row['id']) . '&name=' . urldecode($row['name']) . '" class="text-danger">Delete</a></span>
+                <span class="text-info p-2 rounded border border-danger text-danger"><a href="admin_delete_job.php?jobid=' . urldecode($row['id']) . '" class="text-danger">Delete</a></span>
             </div>
         </div>
         ';

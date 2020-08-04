@@ -48,7 +48,7 @@ $_SESSION['job_id'] = $_GET['jobid'];
           }
         }
         ?>
-        <form action="jobupdate.php" class="p-5 bg-white" method="POST">
+        <form action="admin_job_update.php" class="p-5 bg-white" method="POST">
 
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">

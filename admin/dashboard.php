@@ -28,7 +28,7 @@ include("templates/admin_header.php");
         </div>
 
         <div class="col-md-12 text-center mt-5">
-          <a href="jobs_admin.php" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a>
+          <a href="admin_jobs.php" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a>
         </div>
       </div>
     </div>

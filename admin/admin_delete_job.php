@@ -6,7 +6,7 @@ function function_alert($msg) {
 }
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-require 'db_conn.php';
+require '../db_conn.php';
  
 // Check connection
 if($db === false){
@@ -15,15 +15,15 @@ if($db === false){
     function_alert("You don't have permissions of this post");
     die();
 }
-$id = $_GET['job_id'];
+$id = $_GET['jobid'];
 // Attempt insert query execution
-$sql = "DELETE jobs WHERE `id` = '$id'";
+$sql = "DELETE FROM jobs WHERE `id` = '$id'";
 if(mysqli_query($db, $sql)){
-    header("Location: dashboard.php");
+    header("Location: admin_jobs.php");
     exit();
-} else{
-    function_alert("Error");
-    header("Location: dashboard.php");
+} else{    
+    header("Location: admin_jobs.php");
+    function_alert(print(mysqli_error($db)));
 }
  
 // Close connection

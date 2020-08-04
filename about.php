@@ -103,5 +103,5 @@ include('./layout/header.php');
 </div>
 <!-- END section -->
 <?php // Return to PHP.
-include('./layout/footer.html'); // Include the footer.
+include('./layout/footer.php'); // Include the footer.
 ?>
