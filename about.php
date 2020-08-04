@@ -7,7 +7,7 @@ include('./layout/header.php');
 // Leave the PHP section to display lots of HTML:
 ?>
 
-<div class="unit-5 overlay" style="background-image: url('images/hero_1.jpg');">
+<div class="unit-5 overlay" style="background-image: url('src/images/hero_1.jpg');">
   <div class="container text-center">
     <h2 class="mb-0">About Us</h2>
     <p class="mb-0 unit-6"><a href="index.php">Home</a> <span class="sep">></span> <span>About Us</span></p>
@@ -25,7 +25,7 @@ include('./layout/header.php');
             <span class="icon-wrap">
               <span class="icon icon-play"></span>
             </span>
-            <img src="images/hero_1.jpg" alt="Image" class="img-fluid rounded">
+            <img src="src/images/hero_1.jpg" alt="Image" class="img-fluid rounded">
           </a>
         </div>
 
@@ -58,42 +58,42 @@ include('./layout/header.php');
     <div class="row team">
       <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="100">
         <a href="#" class="person">
-          <img src="images/person_1.jpg" alt="Image placeholder">
+          <img src="src/images/person_1.jpg" alt="Image placeholder">
           <h2>Michelle Megan</h2>
           <p>CEO, Co-founder</p>
         </a>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="200">
         <a href="#" class="person">
-          <img src="images/person_2.jpg" alt="Image placeholder">
+          <img src="src/images/person_2.jpg" alt="Image placeholder">
           <h2>Mike Stellar</h2>
           <p>CTO Co-founder</p>
         </a>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="300">
         <a href="#" class="person">
-          <img src="images/person_3.jpg" alt="Image placeholder">
+          <img src="src/images/person_3.jpg" alt="Image placeholder">
           <h2>Gregg White</h2>
           <p>VP Producer</p>
         </a>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="400">
         <a href="#" class="person">
-          <img src="images/person_4.jpg" alt="Image placeholder">
+          <img src="src/images/person_4.jpg" alt="Image placeholder">
           <h2>Rogie Knitt</h2>
           <p>Project Manager</p>
         </a>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="500">
         <a href="#" class="person">
-          <img src="images/person_1.jpg" alt="Image placeholder">
+          <img src="src/images/person_1.jpg" alt="Image placeholder">
           <h2>Ben Koh</h2>
           <p>Project Manager</p>
         </a>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="600">
         <a href="#" class="person">
-          <img src="images/person_2.jpg" alt="Image placeholder">
+          <img src="src/images/person_2.jpg" alt="Image placeholder">
           <h2>Chris Stanworth</h2>
           <p>Product Designer</p>
         </a>
