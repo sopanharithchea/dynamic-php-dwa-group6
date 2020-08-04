@@ -1,4 +1,4 @@
-<a href="admin_job_single.php?jobid=<?php echo (urldecode($row['id'])) ?>&name=<?php echo ($row['name']) ?>" class="job-item d-block d-md-flex align-items-center fulltime">
+<a href="job-single.php?jobid=<?php echo (urldecode($row['id'])) ?>&name=<?php echo ($row['name']) ?>" class="job-item d-block d-md-flex align-items-center fulltime">
     <div class="company-logo blank-logo text-center text-md-left pl-3">
         <img src="/src/images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
     </div>
