@@ -61,7 +61,7 @@ function function_alert($msg)
                     <br />
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <h3 class="font-weight-bold">Login</h3>
+                            <h3 class="font-weight-bold">Admin Login</h3>
                             <br>
                         </div>
                     </div>
@@ -80,6 +80,7 @@ function function_alert($msg)
                             <input type="submit" value="Login" class="btn btn-primary  py-2 px-5">
                         </div>
                     </div>
+                    <div class="row form-group h3"><a href="/login.php">Not an admin?</a></div>
                 </form>
             </div>
         </div>

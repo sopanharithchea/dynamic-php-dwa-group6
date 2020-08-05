@@ -12,8 +12,8 @@ require '../db_conn.php';
 if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 } elseif ($_SESSION["admin"] != 1){
-    function_alert("You don't have permissions for this post");
-    die();
+    header("Location: admin_job_single.php?jobid={$id}&name={$name}&update=303");
+    exit();
 }
  
 // Escape user inputs for security

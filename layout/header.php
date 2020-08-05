@@ -61,7 +61,11 @@
                       <?php
                       $status = $_SESSION['valid_user'];
                       if ($status == null) {
-                        echo '<li><a href="login.php">Login</a></li>';
+                        echo '<li class="has-children"><a href="login.php">Login</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="register.php">Register</a></li>
+                        </ul>
+                        </li>';
                       } elseif ($_SESSION['admin'] == 1){
                         echo '
                         <li class="has-children">
