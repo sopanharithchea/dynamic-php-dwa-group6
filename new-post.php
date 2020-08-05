@@ -24,11 +24,16 @@ include('./layout/header.php');
         if (!empty($_GET['done'])) {
           switch ($_GET['done']) {
             case 1:
-              echo '<h2 class="mb-0 text-success">Your job was posted!</h2>';
+              echo '<h2 class="mb-0 text-success">Your job was posted!</h2><br/>';
+              break;
+            
+            case 303:
+              echo '<h2 class="mb-0 text-danger">Please login to post</h2><br/>';
               break;
 
             default:
-              echo '<h2 class="mb-0 text-danger">There was an error, please try again later</h2>';
+              echo '<h2 class="mb-0 text-danger">There was an error, please try again later</h2><br/>';
+              print(mysqli_error($db));
               break;
           }
         }

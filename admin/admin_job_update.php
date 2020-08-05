@@ -27,12 +27,12 @@ $id = $_SESSION['job_id'];
 // Attempt insert query execution
 $sql = "UPDATE jobs set `name`='$name', `company`='$company', `category`='$category', `location`='$location', `job_desc`='$description', `shift`='$shift' WHERE `id` = '$id'";
 if(mysqli_query($db, $sql)){
-    header("Location: admin_job_single.php?jobid={$id}&name={$name}");
+    header("Location: admin_job_single.php?jobid={$id}&name={$name}&update=1");
     $_SESSION['job_id'] = null;
     exit();
 } else{
+    header("Location: admin_job_single.php?jobid={$id}&name={$name}&update=404");
     function_alert("Error");
-    header("Location: dashboard.php");
 }
  
 // Close connection

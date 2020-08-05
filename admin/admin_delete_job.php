@@ -12,18 +12,18 @@ require '../db_conn.php';
 if($db === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 } elseif ($_SESSION["admin"] != 1){
-    function_alert("You don't have permissions of this post");
-    die();
+    header("Location: admin_jobs.php?delete=303");
+    exit();
 }
 $id = $_GET['jobid'];
 // Attempt insert query execution
 $sql = "DELETE FROM jobs WHERE `id` = '$id'";
 if(mysqli_query($db, $sql)){
-    header("Location: admin_jobs.php");
+    header("Location: admin_jobs.php?delete=1");
     exit();
 } else{    
-    header("Location: admin_jobs.php");
-    function_alert(print(mysqli_error($db)));
+    header("Location: admin_jobs.php?delete=404");
+    exit();
 }
  
 // Close connection

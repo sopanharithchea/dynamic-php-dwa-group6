@@ -12,9 +12,58 @@ include("templates/admin_header.php");
                     <span class=" mb-0 h1 text-success py-5">
                         Browse
                     </span>
+                    <?php
+                    if (!empty($_GET['done'])) {
+                        switch ($_GET['done']) {
+                            case 1:
+                                echo '<h2 class="mb-0 text-success">User Created!</h2><br/>';
+                                break;
+
+                            case 303:
+                                echo '<h2 class="mb-0 text-danger">Please login as admin</h2><br/>';
+                                break;
+
+                            default:
+                                echo '<h2 class="mb-0 text-danger">There was an error, please try again later</h2><br/>';
+                                print(mysqli_error($db));
+                                break;
+                        }
+                    }
+                    if (!empty($_GET['update'])) {
+                        switch ($_GET['update']) {
+                            case 1:
+                                echo '<h2 class="mb-0 text-success">User Updated!</h2><br/>';
+                                break;
+
+                            case 303:
+                                echo '<h2 class="mb-0 text-danger">Please login as admin</h2><br/>';
+                                break;
+
+                            default:
+                                echo '<h2 class="mb-0 text-danger">There was an error, please try again later</h2><br/>';
+                                print(mysqli_error($db));
+                                break;
+                        }
+                    }
+                    if (!empty($_GET['delete'])) {
+                        switch ($_GET['delete']) {
+                            case 1:
+                                echo '<h2 class="mb-0 text-success">User Deleted!</h2><br/>';
+                                break;
+
+                            case 303:
+                                echo '<h2 class="mb-0 text-danger">Please login as admin</h2><br/>';
+                                break;
+
+                            default:
+                                echo '<h2 class="mb-0 text-danger">There was an error, please try again later</h2><br/>';
+                                print(mysqli_error($db));
+                                break;
+                        }
+                    }
+                    ?>
                     <span>
-                    <a href="/new-post.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Post New
-                                Job</span></a>
+                        <a href="admin_newuser.php"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Add User</span></a>
                     </span>
                 </div>
                 <div class="rounded border jobs-wrap align-content-xl-center">
@@ -29,4 +78,3 @@ include("templates/admin_header.php");
 <?php // Return to PHP.
 include('templates/footer.php'); // Include the footer.
 ?>
-

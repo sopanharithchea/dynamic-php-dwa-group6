@@ -28,9 +28,24 @@ $category = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM `categories` WHE
     <div class="row">
 
       <div class="col-md-12 col-lg-8 mb-5">
+      <?php
+        if (!empty($_GET['update'])) {
+          switch ($_GET['update']) {
+            case 1:
+              echo '<h2 class="mb-0 text-success">Post was updated!</h2><br/>';
+              break;
+            
+            case 303:
+              echo '<h2 class="mb-0 text-danger">Please login to update</h2><br/>';
+              break;
 
-
-
+            default:
+              echo '<h2 class="mb-0 text-danger">There was an error, please try again later</h2><br/>';
+              print(mysqli_error($db));
+              break;
+          }
+        }
+        ?>
         <div class="p-5 bg-white">
 
           <div class="mb-4 mb-md-5 mr-5">

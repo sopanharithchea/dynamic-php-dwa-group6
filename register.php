@@ -12,7 +12,7 @@ include 'layout/header.php';
 // Leave the PHP section to display lots of HTML:
 ?>
 
-<div class="unit-5 overlay" style="background-image: url('images/hero_1.jpg');">
+<div class="unit-5 overlay" style="background-image: url('src/images/hero_1.jpg');">
     <div class="container text-center">
         <h2 class="mb-0">Sign Up or Login</h2>
         <p class="mb-0 unit-6"><a href="index.php">Home</a> <span class="sep">></span> <span>Login</span></p>
@@ -22,33 +22,7 @@ include 'layout/header.php';
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-8 mb-5">
-                <?php
-                require 'db_conn.php';
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    // username and password sent from form
-                    $first_name = mysqli_real_escape_string($db, $_POST['first_name']);
-                    $last_name = mysqli_real_escape_string($db, $_POST['last_name']);
-                    $my_email = mysqli_real_escape_string($db, $_POST['email']);
-                    $pass1 = mysqli_real_escape_string($db, $_POST['pass1']);
-                    $pass2 = mysqli_real_escape_string($db, $_POST['pass2']);
-                    if ($pass1 == $pass2) {
-                        $sql = "INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`, `created_at`) VALUES ('$first_name','$last_name','$my_email','$pass2','NOW()')";
-                        $result = mysqli_query($db, $sql);
-                        if (!headers_sent($filename)) { //checks whether the page has already received HTTP.
-                            header("Location: login.php");
-                            exit(); //exit this login.php page
-                        } else {
-                            echo "Headers already sent in $filename \n" .
-                                "Cannot redirect, for now please click this <a " .
-                                "href=\"login.php\">link</a> instead\n";
-                            exit; //exit this login.php page
-                        };
-                    } else {
-                        function_alert("Passwords do not match. Please try again");
-                    }
-                }
-                ?>
-                <form action=" " method="POST" class="p-5 bg-white">
+                <form action="register_user.php" method="POST" class="p-5 bg-white">
                     <div class="row font-weight-bold">
                         <p>Already have an account? <a href="login.php">Click here</a></p>
                     </div>
