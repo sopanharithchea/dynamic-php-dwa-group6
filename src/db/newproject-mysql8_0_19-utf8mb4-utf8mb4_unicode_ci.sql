@@ -1,10 +1,10 @@
 -- -------------------------------------------------------------
--- TablePlus 3.6.2(322)
+-- TablePlus 3.7.0(330)
 --
 -- https://tableplus.com/
 --
 -- Database: newproject
--- Generation Time: 2020-08-05 00:29:28.2170
+-- Generation Time: 2020-08-05 17:27:24.3400
 -- -------------------------------------------------------------
 
 
@@ -27,18 +27,6 @@ CREATE TABLE `categories` (
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
-CREATE TABLE `companies` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL,
-  `view` int NOT NULL DEFAULT '0',
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `active` int NOT NULL DEFAULT '1',
-  `location` text NOT NULL,
-  `photo` varchar(120) NOT NULL DEFAULT 'default.png',
-  `description` longtext,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `jobs` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -68,33 +56,6 @@ CREATE TABLE `locations` (
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
-
-CREATE TABLE `members` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(30) NOT NULL,
-  `last_name` varchar(30) NOT NULL,
-  `gender` varchar(9) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `phone` varchar(50) DEFAULT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(120) NOT NULL,
-  `photo` varchar(120) DEFAULT 'uploads/members/photos/default.png',
-  `address` varchar(120) DEFAULT NULL,
-  `description` longtext,
-  `active` tinyint NOT NULL DEFAULT '1',
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-CREATE TABLE `pages` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `title` text NOT NULL,
-  `description` longtext NOT NULL,
-  `active` tinyint NOT NULL DEFAULT '1',
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -134,14 +95,6 @@ INSERT INTO `categories` (`id`, `name`, `active`, `icon`, `total`, `create_at`) 
 ('8', 'Law', '1', ' fa-book\r\n', '60', '2020-07-27 08:23:47'),
 ('9', 'Health/Medicine', '1', ' fa-hospital-o\r\n', '85', '2020-07-27 08:23:47'),
 ('10', 'Engineer ', '1', ' fa-cog\r\n', '102', '2020-07-27 08:23:47');
-
-INSERT INTO `companies` (`id`, `name`, `view`, `create_at`, `active`, `location`, `photo`, `description`) VALUES
-('13', 'Krawma', '0', '2020-07-27 08:24:01', '1', 'Phnom Penh', 'default.png', 'Krawma is a Cambodian company with close to 20 years of experience. We are the company that operates the BongThom.com and BongSrey.com web sites. We are regarded as the premier jobs announcements portal in Cambodia Krawma is expanding and so we now want to hire a qualified Cambodia candidate to join our team in the role described below.'),
-('14', 'FTB Bank', '0', '2020-07-27 08:24:01', '1', 'Phnom Penh', 'default.png', '<p>Foreign Trade Bank of Cambodia (<strong>FTB</strong>) is Cambodia&#39;s first and foremost bank. It has been providing customers with safe and reliable banking services for over 37 years. With our head office in Phnom Penh, we currently operate eleven branches and office in Phnom Penh, Sihanoukville, Siem Reap, Battambang and Kampong Cham province and plan to continue expanding our distribution network. In order to cope with the growth, we are looking for highly motivated and qualified candidates to join with our &ldquo;<strong>Employer of Choice</strong>&nbsp;<strong>bank</strong>&rdquo;</p>'),
-('15', 'SOKIMEX INVESTMENT GROUP CO., LTD', '0', '2020-07-27 08:24:01', '1', 'Phnom Penh', 'default.png', '<p>Sokimex Investment Group Co.,Ltd has founded in 1990 and the group is now the parent company manages major business divisions in Cambodia.</p>\r\n\r\n<p>We continue putting ongoing efforts to adjust our marketing strategy to cope with the industry changes and competition by adding new products, services and expanding customer base. The company incorporated improvements to the quality of its products and services and emphasized on good governance and awareness of social responsibility, environment and other stakeholder to drive the business growth and sustain</p>'),
-('16', 'K.E.T IMPORT EXPORT CO., LTD', '0', '2020-07-27 08:24:01', '1', 'Phnom Penh', 'default.png', NULL),
-('17', 'HRINC (CAMBODIA) CO., LTD', '0', '2020-07-27 08:24:01', '1', 'Phnom Penh', 'default.png', '<p>HRINC is the leading provider of HR Services to the Cambodia market and expanding to the South East Asia region.&nbsp; We support multinational companies and leading ASEAN conglomerates and SMEs with their Human Resource needs, from consulting and market intelligence, to outsourcing and compliance as well as recruitment</p>'),
-('18', 'SOMA GROUP CO., LTD.', '0', '2020-07-27 08:24:01', '1', 'Phnom Penh', 'default.png', '<p>Soma Group Co., Ltd is a leading Cambodia company operating in various sectors ranging from agriculture to education, construction, farming, trading, consulting and energy</p>');
 
 INSERT INTO `jobs` (`id`, `name`, `job_desc`, `company`, `location`, `category`, `shift`, `min_sal`, `max_sal`, `create_by`, `create_at`) VALUES
 ('51', 'System Administrator', 'To manage our database', 'PWC', ' Phnom Penh ', '4', '2', NULL, NULL, '1', '2020-07-29 11:31:27');
