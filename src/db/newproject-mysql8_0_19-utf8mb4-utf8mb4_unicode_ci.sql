@@ -3,7 +3,7 @@
 --
 -- https://tableplus.com/
 --
--- Database: newproject
+-- Database: joblisting
 -- Generation Time: 2020-08-05 17:27:24.3400
 -- -------------------------------------------------------------
 
@@ -16,7 +16,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 
 CREATE TABLE `categories` (
   `id` int NOT NULL AUTO_INCREMENT,
