@@ -5,7 +5,7 @@
 # 1. Setup DB with MySQL 8.0.19 or higher
 ## Create new database "joblisting" with encoding "utf8mb4" and collation "utf8mb4_unicode_ci"
 ## Run this sql query to create DB 
-`CREATE DATABASE joblisting CHARACTER SET utfmb4 COLLATE utfmb4_unicode_ci;`
+`CREATE DATABASE joblisting CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`
 
 Then import `src/db/joblisting-mysql8_0_19-utf8mb4-utf8mb4_unicode_ci.sql`
 # 2. Ensure webserver root is this folder `dynamic-php-dwa-group6`
