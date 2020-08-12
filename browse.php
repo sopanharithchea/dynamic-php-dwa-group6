@@ -3,7 +3,7 @@
 session_start();
 $title = 'Browse';
 // Include the header:
-include('layout/header.php');
+include('./layout/header.php');
 // Leave the PHP section to display lots of HTML:
 ?>
 
@@ -23,5 +23,5 @@ include('layout/header.php');
 </div>
 
 <?php // Return to PHP.
-include('layout/footer.php'); // Include the footer.
+include('./layout/footer.php'); // Include the footer.
 ?>

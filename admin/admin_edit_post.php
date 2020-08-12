@@ -22,10 +22,10 @@ $jd = $row['job_desc'];
 $_SESSION['job_id'] = $_GET['jobid'];
 ?>
 
-<div class="unit-5 overlay" style="background-image: url('src/images/hero_1.jpg');">
+<div class="unit-5 overlay" style="background-image: url('../src/images/hero_1.jpg');">
   <div class="container text-center">
-    <h2 class="mb-0">Post a Job</h2>
-    <p class="mb-0 unit-6"><a href="index.php">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
+    <h2 class="mb-0">Edit Job</h2>
+    <p class="mb-0 unit-6"><a href="index.php">Home</a> <span class="sep">></span> <span>Edit Job</span></p>
   </div>
 </div>
 

@@ -17,7 +17,6 @@ $role_sql = "SELECT * FROM `roles`";
 $get_roles = mysqli_query($db, $role_sql);
 $roles = mysqli_fetch_array($get_roles);
 $role_id = $row['role_id'];
-echo($role_id);
 $_SESSION['x_userid'] = $_GET['userid'];
 ?>
 

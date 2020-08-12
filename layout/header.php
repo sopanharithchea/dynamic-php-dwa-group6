@@ -59,14 +59,7 @@
                       <li><a href="about.php">About</a></li>
                       <li><a href="contact.php">Contact</a></li>
                       <?php
-                      $status = $_SESSION['valid_user'];
-                      if ($status == null) {
-                        echo '<li class="has-children"><a href="login.php">Login</a>
-                        <ul class="dropdown arrow-top">
-                          <li><a href="register.php">Register</a></li>
-                        </ul>
-                        </li>';
-                      } elseif ($_SESSION['admin'] == 1){
+                      if ($_SESSION['admin'] == 1){
                         echo '
                         <li class="has-children">
                           <a href="user.php">' . $_SESSION['user'] . '</a>
@@ -77,7 +70,7 @@
                         </li>
                         ';
                       } 
-                      else {
+                      elseif ($_SESSION['user'] === true) {
                         echo '
                         <li class="has-children">
                           <a href="user.php">' . $_SESSION['user'] . '</a>
@@ -86,6 +79,12 @@
                         </ul>
                         </li>
                         ';
+                      } else {
+                        echo '<li class="has-children"><a href="login.php">Login</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="register.php">Register</a></li>
+                        </ul>
+                        </li>';
                       }
                       ?>
 
